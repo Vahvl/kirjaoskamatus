@@ -1,0 +1,1 @@
+object = document.getElementById("Ruuduke")
