@@ -5,35 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tipist</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="main.js"></script> 
-    <style>
-      .flower {
-        width: 200px; /* adjust to control the size */
-        aspect-ratio: 1;
-        --g:/30.26% 30.26% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
-        mask: 100% 50% var(--g),81.174% 89.092% var(--g),38.874% 98.746% var(--g),4.952% 71.694% var(--g),4.952% 28.306% var(--g),38.874% 1.254% var(--g),81.174% 10.908% var(--g),radial-gradient(100% 100%,#000 31.417%,#0000 calc(31.417% + 1px));
-        background-color: blueviolet;
-        border: 1px solid blue; 
-        box-sizing: border-box;
-        display: block
-      }
-      .polygon {
-  width: 200px; /* adjust to control the size */
-  aspect-ratio: 1;
-  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);
-  border-radius: 15px;
-  background-color: orange;
-  display: block
-}
-    </style>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <script src="{{ url_for('static',filename='main.js') }}"></script>
+    <style></style>
   </head>
   <body>
     <main>
         <h1>Saathe abi :3</h1>  
     </main>
     <!--<div, id="Ruuduke", class="flower"></div>-->
-    <div, id="Ruuduke", class="polygon"></div>
-    <p>https://css-shape.com/</p>
+    <div style="height:100px"></div>
+    <div id="tekstikast" >https://css-shape.com/</div>
+    <p id="koikTahed">a</p>
   </body>
 </html>

@@ -1,1 +1,8 @@
-
+#tekstikast {
+    color: blue;
+    background-color: green;
+    border: 20px;
+    padding: 20px;
+    width: 150px;
+    height: 25px;
+}
