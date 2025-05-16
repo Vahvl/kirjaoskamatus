@@ -1,4 +1,3 @@
-console.log("Tes!!")
 koik= ""
 document.addEventListener('keydown', (event) => {
     const keyPressed = event.key;

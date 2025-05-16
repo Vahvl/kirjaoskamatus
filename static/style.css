@@ -9,5 +9,10 @@
 
 #bigAssTaht {
     font-size: 85px;
+    width: 700px;
+    height: 100px;
+    padding: 5px;
+    text-align: left;
+    mask-image: linear-gradient(to right, transparent 0%, white 50%)
 }
-/*#655a7c,#a97699,#d5978a,#dec4b6,#96b3b9
+/*värviskeem! #655a7c,#a97699,#d5978a,#dec4b6,#96b3b9
