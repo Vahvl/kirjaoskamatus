@@ -10,12 +10,16 @@
       body {
         background-color:white;
       }
-      ul {
+      * {
+        color: #E6D2C7;
+      }
+      #navbar {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #38444d;
+        background-color: #564D6A;
+        border-radius: 10px;
       }
       
       li {
@@ -24,14 +28,14 @@
       
       li a, .dropbtn {
         display: block;
-        color: white;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        transition: 0.28s;
       }
       
       li a:hover, .dropdown:hover .dropbtn {
-        background-color: red;
+        background-color: #7D7198;
       }
       
       li.dropdown {
@@ -43,24 +47,29 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
+        background-color: #7D7198;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        transition: 0.28s; 
+        border-radius: 10px;
+        border-top-left-radius: 0px;
       }
       
       .dropdown-content a {
-        color: black;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
         width: 128px;
-        text-align: center
-        ;
-        
+        text-align: center;
+        transition: 0.28s;        
       }
       
-      .dropdown-content a:hover {background-color: #f1f1f1;}
+      .dropdown-content a:hover {
+        background-color: #887DA1;
+        border-radius: 10px;
+        border-top-left-radius: 0px;
+      }
       
       .dropdown:hover .dropdown-content {
         display: block;
@@ -69,7 +78,7 @@
       </head>
       <body>
       
-      <ul>
+      <ul id="navbar">
         <li><a href="t1">Tase 1</a></li>
         <li><a href="t2">Tase 2</a></li>
         <li><a href="t3">Tase 3</a></li>

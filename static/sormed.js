@@ -31,7 +31,7 @@ function vahetus (x){
   
 }
 // miks see syntax nii väärakas olema peab 😭😭
-v.addEventListener("click", function (){vahetus(p)})
+v.addEventListener("click", function (){vahetus(v)})
 m.addEventListener("click", function (){vahetus(m)})
 p.addEventListener("click", function (){vahetus(p)})
 //ts pmo 💔🥀
