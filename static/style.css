@@ -20,8 +20,12 @@ body {
     width: 700px;
     height: 100px;
     padding: 5px;
-    text-align: left;
-    mask-image: linear-gradient(to right, transparent 0%, white 50%)
+    text-align: right;
+}
+#taheHoidja {
+  mask-image: linear-gradient(to right, transparent 35%, white 75%);
+  justify-content: center;
+  display: flex;
 }
 
 .ul {
@@ -41,7 +45,7 @@ div#rida {
 
 div.hoidla {
     width: 129px;
-    height: 52px;
+    height: 78px;
     background-color: #a97699;
     display: block;
     margin: auto;
