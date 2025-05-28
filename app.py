@@ -21,7 +21,7 @@ def t3():
 
 @app.route("/meist")
 def meist():
-    return render_template("storage.html")
+    return render_template("meist.html")
   
 
 if __name__ == '__main__':

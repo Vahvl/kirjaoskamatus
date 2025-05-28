@@ -12,6 +12,7 @@ const kaed =  {
 
 viimane = ""
 reake = ""
+tase = document.getElementById("tase").innerHTML
 
 async function loadWords() {
   const response = await fetch("/static/sonad.txt");
@@ -20,7 +21,6 @@ async function loadWords() {
 }
 
 function generatsioon () {
-  tase = document.getElementById("tase").innerHTML
   tekst = ""
   if (tase == "t1" || tase == "t2") {
     kasi = viimane
@@ -34,7 +34,7 @@ function generatsioon () {
         tekst += (valmista[randomIndex]).toString().repeat(2) + " ";
       }
       console.log(tekst)
-      document.getElementById("output").innerText = tekst
+      startTypingAnimation(tekst)
     }
     if (tase == "t2") {
       for (i = 0; i < 9; i++) {
@@ -46,7 +46,7 @@ function generatsioon () {
         }
       }
       console.log(tekst)
-      document.getElementById("output").innerText = tekst
+      startTypingAnimation(tekst)
     }
   } else if (tase == "t3") {
     console.log("t3")
@@ -57,7 +57,8 @@ function generatsioon () {
         const word = words[Math.floor(Math.random() * words.length)];
         if (!selected.includes(word)) selected.push(word);
       }
-    document.getElementById("output").innerText = selected.join(" ");
+    
+    startTypingAnimation(selected.join(" "))
     console.log(selected.join(" "))
     }
     tase3()
@@ -80,31 +81,35 @@ function vahetus (x){
   valik.innerHTML = x.innerHTML
   viimane = x.id; console.log(viimane)
   generatsioon()
+  this.blur();
 }
 
 function tumeJaKeerutatudVahetus (x){
   rida.innerHTML = x.innerHTML
   reake = x.id; console.log(reake)
   generatsioon()
+  this.blur();
 }
 
-// miks see syntax nii väärakas olema peab 😭😭
-v.addEventListener("click", function (){vahetus(v)})
-m.addEventListener("click", function (){vahetus(m)})
-p.addEventListener("click", function (){vahetus(p)})
+if (tase != "t3")
+  {
+  // miks see syntax nii väärakas olema peab 😭😭
+  v.addEventListener("click", function (){this.blur(); vahetus(v)})
+  m.addEventListener("click", function (){this.blur(); vahetus(m)})
+  p.addEventListener("click", function (){this.blur(); vahetus(p)})
 
-r1.addEventListener("click", function (){tumeJaKeerutatudVahetus(r1)})
-r2.addEventListener("click", function (){tumeJaKeerutatudVahetus(r2)})
-r3.addEventListener("click", function (){tumeJaKeerutatudVahetus(r3)})
-//ts pmo 💔🥀
-
-console.log(read[rida])
+  r1.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r1)})
+  r2.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r2)})
+  r3.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r3)})
+  //ts pmo 💔🥀
+}
+//console.log(read[rida])
 //reavalik tehtud, tuleb välja mõelda mida nendega teha, ma ei jaksa hetkel tegeleda sellega
 
 koik= ""
 document.addEventListener('keydown', (event) => {
     const keyPressed = event.key;
-    console.log(keyPressed)
+    //console.log(keyPressed)
     if (keyPressed == "Backspace") {
       koik = koik.slice(0, -1)
       document.getElementById("bigAssTaht").innerHTML=koik.slice(-17)
@@ -114,9 +119,12 @@ document.addEventListener('keydown', (event) => {
       document.getElementById("bigAssTaht").innerHTML=koik.slice(-17,-1)+keyPressed
     }
     if (keyPressed == "Enter") {
-      console.log("tohoh")
+      //console.log("tohoh")
       if (koik == document.getElementById("output").innerText) {
         alert("TUBLI")
+        generatsioon()
+        koik = ""
+        document.getElementById("bigAssTaht").innerHTML=""
       }
       koik = ""
     }

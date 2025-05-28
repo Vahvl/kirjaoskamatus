@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tipist</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">  
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
     <style></style>
   </head>
   <body>
-    <a id = "rida">t3</a>
-    <a id="valitud">valitud</a>
-    <ul>
-      <li><button id="v">Vasak</button></li>
-      <li><button id="m">Mõlemad</button></li>
-      <li><button id="p">Parem</button></li>
-    </ul>
-    <a id ="tähed!"></a>
+    <div>
+      <div class="hoidla">
+        <div id = "tase" class ="olekeskelPALUN">t3</div>
+        <div id="valitud" class ="olekeskelPALUN">valitud</div>
+        <div id="rida" class ="olekeskelPALUN">Rida</div>
+      </div>
+    </div>
+    <div class ="container">
+      <ul class="ul">
+        <button onclick="this.blur(); generatsioon()" class="prettybutton">Alusta</button>
+      </ul>
+    </div>
+    <h1 id="output" style="font-size: 45px;">&nbsp;</h1>
+    <div id="taheHoidja"><div id="bigAssTaht"></div></div>
+    {% include 'klava.html' %}
     <script src="{{ url_for('static',filename='sormed.js') }}"></script> 
   </body>
  

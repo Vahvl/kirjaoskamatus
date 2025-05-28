@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tipist</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">  
+    <style>
+        h1 {
+          text-align: center;
+          font-size: 1.8em;
+          font-family: monospace;
+          padding: 0.7em;
+        }
+  
+        .keyboard {
+          text-align: center;
+          font-size: 14px;
+          font-family: sans-serif;
+        }
+  
+        .keyboard__row {
+          display: flex;
+          height: 3em;
+          margin: 0.4em;
+          justify-content: center;
+        }
+  
+        .keyboard__row--h1 {
+          height: 1.7em;
+          line-height: 1.4em;
+        }
+  
+        .keyboard__row--h3 {
+          height: 3.3em;
+        }
+  
+        .keyboard__row > * {
+          position: relative;
+          background: #a97699;
+          text-align: center;
+          float: left;
+          border-radius: 0.3em;
+          margin: 0.2em;
+          padding: 0.2em;
+          width: 3.3em;
+          height: 100%;
+          box-sizing: border-box;
+          cursor: pointer;
+          -webkit-user-select: none;
+          border: 1px solid #d5978a;
+          box-shadow: 0 0.2em 0 0.05em #564d6a;
+          border-bottom-color: #e1a89b;
+        }
+  
+        .keyboard__row--h1 > div {
+          width: 3.5em;
+        }
+  
+        /* Remove old single color background on press/active */
+        /*
+        .keyboard__row > div[data-pressed],
+        .keyboard__row > div:active {
+          background: #A1688F;
+          position: relative;
+          top: 0.2em;
+        }
+        */
+  
+        .key--w3 {
+          width: 4.6em;
+        }
+  
+        .key--w4 {
+          width: 6em;
+        }
+  
+        .key--w5 {
+          width: 6.5em;
+        }
+  
+        .key--w6 {
+          width: 8.3em;
+        }
+  
+        .key--space {
+          width: 18em;
+        }
+  
+        .key--letter {
+          line-height: 2.8em;
+        }
+  
+        .keyboard > .keyboard__row {
+          text-align: center;
+        }
+  
+        /* New per-finger color for mouse click and keyboard press */
+        .finger-0:active,
+        .finger-0[data-pressed] {
+          background: #a1688f;
+          position: relative;
+          top: 0.2em;
+        }
+  
+        .finger-1:active,
+        .finger-1[data-pressed] {
+          background: #b1c7be;
+          position: relative;
+          top: 0.2em;
+        }
+  
+        .finger-2:active,
+        .finger-2[data-pressed] {
+          background: #8fa1a1;
+          position: relative;
+          top: 0.2em;
+        }
+  
+        .finger-3:active,
+        .finger-3[data-pressed] {
+          background: #cdb4db;
+          position: relative;
+          top: 0.2em;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="keyboard">
+        <div class="keyboard__row">
+          <div class="key--letter finger-0" data-char="Q">Q</div>
+          <div class="key--letter finger-1" data-char="W">W</div>
+          <div class="key--letter finger-2" data-char="E">E</div>
+          <div class="key--letter finger-3" data-char="R">R</div>
+          <div class="key--letter finger-3" data-char="T">T</div>
+          <div class="key--letter finger-3" data-char="Y">Y</div>
+          <div class="key--letter finger-3" data-char="U">U</div>
+          <div class="key--letter finger-2" data-char="I">I</div>
+          <div class="key--letter finger-1" data-char="O">O</div>
+          <div class="key--letter finger-0" data-char="P">P</div>
+          <div class="key--letter finger-0" data-char="Ü">Ü</div>
+          <div class="key--letter finger-0" data-char="Õ">Õ</div>
+        </div>
+        <div class="keyboard__row">
+          <div class="key--letter finger-0" data-char="A">A</div>
+          <div class="key--letter finger-1" data-char="S">S</div>
+          <div class="key--letter finger-2" data-char="D">D</div>
+          <div class="key--letter finger-3" data-char="F">F</div>
+          <div class="key--letter finger-3" data-char="G">G</div>
+          <div class="key--letter finger-3" data-char="H">H</div>
+          <div class="key--letter finger-3" data-char="J">J</div>
+          <div class="key--letter finger-2" data-char="K">K</div>
+          <div class="key--letter finger-1" data-char="L">L</div>
+          <div class="key--letter finger-0" data-char="Ö">Ö</div>
+          <div class="key--letter finger-0" data-char="Ä">Ä</div>
+        </div>
+        <div class="keyboard__row">
+          <div class="key--letter finger-0" data-char="Z">Z</div>
+          <div class="key--letter finger-1" data-char="X">X</div>
+          <div class="key--letter finger-2" data-char="C">C</div>
+          <div class="key--letter finger-3" data-char="V">V</div>
+          <div class="key--letter finger-3" data-char="B">B</div>
+          <div class="key--letter finger-3" data-char="N">N</div>
+          <div class="key--letter finger-2" data-char="M">M</div>
+        </div>
+        <div class="keyboard__row keyboard__row--h3">
+          <div
+            class="key--double key--right key--space finger-3"
+            data-key="32"
+            data-char=" "
+          >
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </body>
+    <script>
+      const leftFingerZones = [
+        ["Q", "A", "Z"],
+        ["W", "S", "X"],
+        ["E", "D", "C"],
+        ["R", "F", "V", "T", "G", "B"],
+      ];
+  
+      const rightFingerZones = [
+        ["P", "Ü", "Õ", "Ö", "Ä"],
+        ["O", "L"],
+        ["I", "K"],
+        ["U", "J", "M", "Y", "H", "N"],
+      ];
+  
+      const colors = ["#A1688F", "#B1C7BE", "#8FA1A1", "#CDB4DB"];
+  
+      function fingerColor(char) {
+        char = char.toUpperCase();
+        for (let i = 0; i < 4; i++) {
+          if (leftFingerZones[i].includes(char)) return colors[i];
+          if (rightFingerZones[i].includes(char)) return colors[i];
+        }
+        return "#A1688F"; // fallback color
+      }
+  
+      function getKey(e) {
+        var location = e.location;
+        var selector;
+        if (location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT) {
+          selector = ['[data-key="' + e.keyCode + '-R"]'];
+        } else {
+          var code = e.keyCode || e.which;
+          selector = [
+            '[data-key="' + code + '"]',
+            '[data-char*="' + encodeURIComponent(String.fromCharCode(code)) + '"]',
+          ].join(",");
+        }
+        return document.querySelector(selector);
+      }
+  
+      function pressKey(char) {
+        var key = Array.from(document.querySelectorAll("[data-char]")).find(
+          (el) => el.getAttribute("data-char").toUpperCase() === char.toUpperCase()
+        );
+        if (!key) {
+          return console.warn("No key for", char);
+        }
+        key.setAttribute("data-pressed", "on");
+        // Background color handled by CSS now
+        setTimeout(function () {
+          key.removeAttribute("data-pressed");
+        }, 200);
+      }
+  
+      var h1 = document.querySelector("h1");
+      var originalQueue = h1.innerHTML;
+      var queue = h1.innerHTML;
+  
+      function next() {
+        var c = queue[0];
+        queue = queue.slice(1);
+        h1.innerHTML = originalQueue.slice(0, originalQueue.length - queue.length);
+        pressKey(c);
+        if (queue.length) {
+          setTimeout(next, Math.random() * 200 + 50);
+        }
+      }
+  
+      function startTypingAnimation(txt) {
+        originalQueue = txt || originalQueue || "&nbsp;";
+        queue = originalQueue;
+        h1.innerHTML = "&nbsp";  // Start empty, no full text flash
+        setTimeout(next, 250);
+        }
+  
+      document.body.addEventListener("keydown", function (e) {
+        const char = e.key?.toUpperCase();
+        if (!char) return;
+        const allKeys = document.querySelectorAll("[data-char]");
+        for (const key of allKeys) {
+          const chars = key.getAttribute("data-char").toUpperCase().split("");
+          if (chars.includes(char)) {
+            key.setAttribute("data-pressed", "on");
+            return;
+          }
+        }
+        console.warn("No key for", e.keyCode);
+      });
+  
+      document.body.addEventListener("keyup", function (e) {
+        const char = e.key?.toUpperCase();
+        if (!char) return;
+        const allKeys = document.querySelectorAll("[data-char]");
+        for (const key of allKeys) {
+          const chars = key.getAttribute("data-char").toUpperCase().split("");
+          if (chars.includes(char)) {
+            key.removeAttribute("data-pressed");
+            return;
+          }
+        }
+      });
+  
+      function size() {
+        var size = keyboard.parentNode.clientWidth / 90;
+        keyboard.style.fontSize = size + "px";
+        console.log(size);
+      }
+  
+      var keyboard = document.querySelector(".keyboard");
+      window.addEventListener("resize", function (e) {
+        size();
+      });
+      size();
+    </script>
+  </html>

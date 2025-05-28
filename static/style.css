@@ -13,17 +13,19 @@ body {
 
 * {
     color: #E6D2C7;
+    font-family: monospace;
+    font-weight: 700
 }
 
 #bigAssTaht {
-    font-size: 85px;
+    font-size: 70px;
     width: 700px;
     height: 100px;
     padding: 5px;
-    text-align: right;
+    text-align: center;
 }
 #taheHoidja {
-  mask-image: linear-gradient(to right, transparent 35%, white 75%);
+
   justify-content: center;
   display: flex;
 }
