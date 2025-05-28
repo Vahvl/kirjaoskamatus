@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tipist</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">  
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tipist</title>
+        <link rel="stylesheet" type="text/css"
+            href="{{ url_for('static',filename='style.css') }}">
+        <style>
         h1 {
           text-align: center;
           font-size: 1.8em;
@@ -37,36 +38,61 @@
         }
   
         .keyboard__row > * {
-          position: relative;
-          background: #a97699;
-          text-align: center;
-          float: left;
-          border-radius: 0.3em;
-          margin: 0.2em;
-          padding: 0.2em;
-          width: 3.3em;
-          height: 100%;
-          box-sizing: border-box;
-          cursor: pointer;
-          -webkit-user-select: none;
-          border: 1px solid #d5978a;
-          box-shadow: 0 0.2em 0 0.05em #564d6a;
-          border-bottom-color: #e1a89b;
+            position: relative;
+            text-align: center;
+            float: left;
+            border-radius: 0.3em;
+            margin: 0.2em;
+            padding: 0.2em;
+            width: 3.3em;
+            height: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            -webkit-user-select: none;
+            border: 1px solid #d5978a;
+            box-shadow: 0 0.2em 0 0.05em #564d6a;
+            border-bottom-color: #e1a89b;
         }
-  
-        .keyboard__row--h1 > div {
-          width: 3.5em;
-        }
-  
-        /* Remove old single color background on press/active */
-        /*
-        .keyboard__row > div[data-pressed],
-        .keyboard__row > div:active {
-          background: #A1688F;
-          position: relative;
-          top: 0.2em;
-        }
-        */
+
+        /* Base background colors */
+.finger-0 {
+  background: #a1688f; /* Pinky stays the same */
+}
+.finger-1 {
+  background: #9bb2aa; /* Darker than before */
+}
+.finger-2 {
+  background: #7b8e8e; /* Darker than before */
+}
+.finger-3 {
+  background: #b89ecb; /* Darker than before */
+}
+
+/* Pressed (even darker) */
+.finger-0[data-pressed="on"],
+.finger-0:active {
+  background: #8f507c !important;
+  top: 0.2em;
+}
+
+.finger-1[data-pressed="on"],
+.finger-1:active {
+  background: #7d968e !important;
+  top: 0.2em;
+}
+
+.finger-2[data-pressed="on"],
+.finger-2:active {
+  background: #5d7474 !important;
+  top: 0.2em;
+}
+
+.finger-3[data-pressed="on"],
+.finger-3:active {
+  background: #9d82b4 !important;
+  top: 0.2em;
+}
+
   
         .key--w3 {
           width: 4.6em;
@@ -127,53 +153,52 @@
       </style>
     </head>
     <body>
-      <div class="keyboard">
-        <div class="keyboard__row">
-          <div class="key--letter finger-0" data-char="Q">Q</div>
-          <div class="key--letter finger-1" data-char="W">W</div>
-          <div class="key--letter finger-2" data-char="E">E</div>
-          <div class="key--letter finger-3" data-char="R">R</div>
-          <div class="key--letter finger-3" data-char="T">T</div>
-          <div class="key--letter finger-3" data-char="Y">Y</div>
-          <div class="key--letter finger-3" data-char="U">U</div>
-          <div class="key--letter finger-2" data-char="I">I</div>
-          <div class="key--letter finger-1" data-char="O">O</div>
-          <div class="key--letter finger-0" data-char="P">P</div>
-          <div class="key--letter finger-0" data-char="Ü">Ü</div>
-          <div class="key--letter finger-0" data-char="Õ">Õ</div>
+        <div class="keyboard">
+            <div class="keyboard__row">
+                <div class="key--letter finger-0" data-char="Q">Q</div>
+                <div class="key--letter finger-1" data-char="W">W</div>
+                <div class="key--letter finger-2" data-char="E">E</div>
+                <div class="key--letter finger-3" data-char="R">R</div>
+                <div class="key--letter finger-3" data-char="T">T</div>
+                <div class="key--letter finger-3" data-char="Y">Y</div>
+                <div class="key--letter finger-3" data-char="U">U</div>
+                <div class="key--letter finger-2" data-char="I">I</div>
+                <div class="key--letter finger-1" data-char="O">O</div>
+                <div class="key--letter finger-0" data-char="P">P</div>
+                <div class="key--letter finger-0" data-char="Ü">Ü</div>
+                <div class="key--letter finger-0" data-char="Õ">Õ</div>
+            </div>
+            <div class="keyboard__row">
+                <div class="key--letter finger-0" data-char="A">A</div>
+                <div class="key--letter finger-1" data-char="S">S</div>
+                <div class="key--letter finger-2" data-char="D">D</div>
+                <div class="key--letter finger-3" data-char="F">F</div>
+                <div class="key--letter finger-3" data-char="G">G</div>
+                <div class="key--letter finger-3" data-char="H">H</div>
+                <div class="key--letter finger-3" data-char="J">J</div>
+                <div class="key--letter finger-2" data-char="K">K</div>
+                <div class="key--letter finger-1" data-char="L">L</div>
+                <div class="key--letter finger-0" data-char="Ö">Ö</div>
+                <div class="key--letter finger-0" data-char="Ä">Ä</div>
+            </div>
+            <div class="keyboard__row">
+                <div class="key--letter finger-0" data-char="Z">Z</div>
+                <div class="key--letter finger-1" data-char="X">X</div>
+                <div class="key--letter finger-2" data-char="C">C</div>
+                <div class="key--letter finger-3" data-char="V">V</div>
+                <div class="key--letter finger-3" data-char="B">B</div>
+                <div class="key--letter finger-3" data-char="N">N</div>
+                <div class="key--letter finger-2" data-char="M">M</div>
+            </div>
+            <div class="keyboard__row keyboard__row--h3">
+                <div
+                    class="key--double key--right key--space finger-3"
+                    data-key="32"
+                    data-char=" ">
+                    &nbsp;
+                </div>
+            </div>
         </div>
-        <div class="keyboard__row">
-          <div class="key--letter finger-0" data-char="A">A</div>
-          <div class="key--letter finger-1" data-char="S">S</div>
-          <div class="key--letter finger-2" data-char="D">D</div>
-          <div class="key--letter finger-3" data-char="F">F</div>
-          <div class="key--letter finger-3" data-char="G">G</div>
-          <div class="key--letter finger-3" data-char="H">H</div>
-          <div class="key--letter finger-3" data-char="J">J</div>
-          <div class="key--letter finger-2" data-char="K">K</div>
-          <div class="key--letter finger-1" data-char="L">L</div>
-          <div class="key--letter finger-0" data-char="Ö">Ö</div>
-          <div class="key--letter finger-0" data-char="Ä">Ä</div>
-        </div>
-        <div class="keyboard__row">
-          <div class="key--letter finger-0" data-char="Z">Z</div>
-          <div class="key--letter finger-1" data-char="X">X</div>
-          <div class="key--letter finger-2" data-char="C">C</div>
-          <div class="key--letter finger-3" data-char="V">V</div>
-          <div class="key--letter finger-3" data-char="B">B</div>
-          <div class="key--letter finger-3" data-char="N">N</div>
-          <div class="key--letter finger-2" data-char="M">M</div>
-        </div>
-        <div class="keyboard__row keyboard__row--h3">
-          <div
-            class="key--double key--right key--space finger-3"
-            data-key="32"
-            data-char=" "
-          >
-            &nbsp;
-          </div>
-        </div>
-      </div>
     </body>
     <script>
       const leftFingerZones = [
@@ -290,4 +315,4 @@
       });
       size();
     </script>
-  </html>
+</html>
