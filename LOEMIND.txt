@@ -5,7 +5,7 @@ Koodi käivitamine liiga keeruline ei ole. Kood tuleb panna nii nagu ta on kõik
 Seejärel lihtsalt jooksuta app.py koodikest ja ava oma browseris https://localhost:5000 
 Kui midagi ei tööta kontrolli flaski olemasolu. https://flask.palletsprojects.com/en/stable/
 
-Uhkusega tõenäoliselt ainus tehisarukoodivaba projekt mis siin tekkis. 🫡
+Uhkusega tõenäoliselt ainus (nüüd peaaegu :( )tehisarukoodivaba projekt mis siin tekkis. 🫡
 Selle valmistamisel tarbiti ilmselt rohkem milligramme kofeiini kui kirjutati ridu.
 
 klava.html on olemas vaid tänu u poolele grammile kofeiinile. Ei, ma ei tea miks ja kuidas see töötab.
