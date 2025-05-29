@@ -2294,6 +2294,7 @@ briti
 britt
 broiler
 broneerimise
+brr brr patapim
 brutus
 bucephala
 buco
@@ -21291,6 +21292,7 @@ sahisema
 sahkerdaja
 sahkerdamine
 sahkerdused
+sahur
 saiad
 saiapuru
 said

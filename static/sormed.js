@@ -1,7 +1,8 @@
 const read = {
   r1: ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "ü", "õ"],
   r2: ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä"],
-  r3: ["z", "x", "c", "v", "b", "n", "m"]
+  r3: ["z", "x", "c", "v", "b", "n", "m"],
+  koikread: ["a", "z", "q", "w", "s", "x", "e", "d", "c", "r", "t", "f", "g", "v", "b", "p", "ü", "õ", "ö", "ä", "o", "l", "k", "i", "m", "n", "j", "h", "u", "y"]
 };
   
 const kaed =  {
@@ -14,12 +15,14 @@ viimane = ""
 reake = ""
 tase = document.getElementById("tase").innerHTML
 
+//mashallah võtab sõnad failist
 async function loadWords() {
   const response = await fetch("/static/sonad.txt");
   const text = await response.text();
   return text.split(/\r?\n/).filter(Boolean);
 }
 
+//main generatsioon yap, lege vaata seda kuidas ta töötab, et aru saada
 function generatsioon () {
   tekst = ""
   if (tase == "t1" || tase == "t2") {
@@ -33,6 +36,7 @@ function generatsioon () {
         const randomIndex = Math.floor(Math.random() * valmista.length);
         tekst += (valmista[randomIndex]).toString().repeat(2) + " ";
       }
+      tekst = tekst.slice(0, -1)
       console.log(tekst)
       startTypingAnimation(tekst)
     }
@@ -73,7 +77,8 @@ p = document.getElementById("p")
 r1 = document.getElementById("r1")
 r2 = document.getElementById("r2")
 r3 = document.getElementById("r3")
-valik = document.getElementById("valitud") //see tekst seal ülal 
+koikread = document.getElementById("koikread")
+valik = document.getElementById("valitud")
 rida = document.getElementById("rida")
 console.log(v, m, p, rida)
 
@@ -101,15 +106,12 @@ if (tase != "t3")
   r1.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r1)})
   r2.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r2)})
   r3.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(r3)})
-  //ts pmo 💔🥀
+  koikread.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(koikread)})
 }
-//console.log(read[rida])
-//reavalik tehtud, tuleb välja mõelda mida nendega teha, ma ei jaksa hetkel tegeleda sellega
 
 koik= ""
 document.addEventListener('keydown', (event) => {
     const keyPressed = event.key;
-    //console.log(keyPressed)
     if (keyPressed == "Backspace") {
       koik = koik.slice(0, -1)
       document.getElementById("bigAssTaht").innerHTML=koik.slice(-17)
@@ -119,7 +121,6 @@ document.addEventListener('keydown', (event) => {
       document.getElementById("bigAssTaht").innerHTML=koik.slice(-17,-1)+keyPressed
     }
     if (keyPressed == "Enter") {
-      //console.log("tohoh")
       if (koik == document.getElementById("output").innerText) {
         alert("TUBLI")
         generatsioon()

@@ -1,3 +1,5 @@
+# fail alles vaid sentimentaalsetel põhjustel, ei ole kasutuses
+# lennart type beat
 from random import *
 
 sonads = ["aed", "meeter", "pärtel", "skiso", "sigma", "raha", "kell"]

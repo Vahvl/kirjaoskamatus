@@ -52,6 +52,7 @@
             border: 1px solid #d5978a;
             box-shadow: 0 0.2em 0 0.05em #564d6a;
             border-bottom-color: #e1a89b;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1)
         }
 
         /* Base background colors */
@@ -188,7 +189,10 @@
                 <div class="key--letter finger-3" data-char="V">V</div>
                 <div class="key--letter finger-3" data-char="B">B</div>
                 <div class="key--letter finger-3" data-char="N">N</div>
-                <div class="key--letter finger-2" data-char="M">M</div>
+                <div class="key--letter finger-3" data-char="M">M</div>
+                <div class="key--letter finger-2" data-char=",">,</div>
+                <div class="key--letter finger-1" data-char=".">.</div>
+                <div class="key--letter finger-0" data-char="-">-</div>
             </div>
             <div class="keyboard__row keyboard__row--h3">
                 <div
@@ -209,9 +213,9 @@
       ];
   
       const rightFingerZones = [
-        ["P", "Ü", "Õ", "Ö", "Ä"],
-        ["O", "L"],
-        ["I", "K"],
+        ["P", "Ü", "Õ", "Ö", "Ä", "-"],
+        ["O", "L", "."],
+        ["I", "K", ","],
         ["U", "J", "M", "Y", "H", "N"],
       ];
   

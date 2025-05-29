@@ -1,4 +1,4 @@
-# flask vist
+# tavakas flaski kraam
 from flask import *
 
 app = Flask(__name__)

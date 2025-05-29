@@ -9,3 +9,4 @@ Uhkusega tõenäoliselt ainus (nüüd peaaegu :( )tehisarukoodivaba projekt mis 
 Selle valmistamisel tarbiti ilmselt rohkem milligramme kofeiini kui kirjutati ridu.
 
 klava.html on olemas vaid tänu u poolele grammile kofeiinile. Ei, ma ei tea miks ja kuidas see töötab.
+https://codepen.io/gymbry/pen/KWwepx on kus suur osa sellest tuli :p
