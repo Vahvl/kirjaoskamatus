@@ -109,6 +109,71 @@ if (tase != "t3")
   koikread.addEventListener("click", function (){this.blur(); tumeJaKeerutatudVahetus(koikread)})
 }
 
+
+// see tuli mingist toast libraryst
+const toast = {
+  container: document.getElementById('toastContainer'),
+  counter: 0,
+
+  show(type, title, message, duration = 1000) {
+      const id = `toast-${++this.counter}`;
+      const toastEl = document.createElement('div');
+      toastEl.className = `toast ${type}`;
+      toastEl.id = id;
+      
+      const icons = {
+          success: '✓',
+          error: '✕',
+          warning: '⚠',
+          info: 'ℹ'
+      };
+      
+      toastEl.innerHTML = `
+          <div class="toast-content">
+              <div class="toast-icon">${icons[type]}</div>
+              <div class="toast-text">
+                  <div class="toast-title">${title}</div>
+                  ${message ? `<div class="toast-message">${message}</div>` : ''}
+              </div>
+              <button class="toast-close">×</button>
+          </div>
+      `;
+      
+      this.container.appendChild(toastEl);
+      
+      setTimeout(() => {
+          toastEl.classList.add('show');
+      }, 10);
+      
+      const autoHide = setTimeout(() => this.hide(id), duration);
+      
+      toastEl.querySelector('.toast-close').onclick = (e) => {
+          e.stopPropagation();
+          clearTimeout(autoHide);
+          this.hide(id);
+      };
+      
+      toastEl.onclick = () => {
+          clearTimeout(autoHide);
+          this.hide(id);
+      };
+  },
+
+  hide(id) {
+      const toastEl = document.getElementById(id);
+      if (toastEl) {
+          toastEl.classList.remove('show');
+          toastEl.classList.add('hide');
+          setTimeout(() => {
+              if (toastEl.parentNode) {
+                  toastEl.remove();
+              }
+          }, 500);
+      }
+  },
+}
+
+
 koik= ""
 document.addEventListener('keydown', (event) => {
     const keyPressed = event.key;
@@ -122,7 +187,7 @@ document.addEventListener('keydown', (event) => {
     }
     if (keyPressed == "Enter") {
       if (koik == document.getElementById("output").innerText) {
-        alert("TUBLI")
+        toast.show("success", "Tubli!")
         generatsioon()
         koik = ""
         document.getElementById("bigAssTaht").innerHTML=""
