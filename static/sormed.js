@@ -37,8 +37,12 @@ function generatsioon () {
         tekst += (valmista[randomIndex]).toString().repeat(2) + " ";
       }
       tekst = tekst.slice(0, -1)
-      console.log(tekst)
-      startTypingAnimation(tekst)
+      if (typeof tekst === "string") {
+        console.log(tekst)
+        startTypingAnimation(tekst)
+      } else {
+        return
+      }
     }
     if (tase == "t2") {
       for (i = 0; i < 9; i++) {
@@ -49,8 +53,12 @@ function generatsioon () {
           tekst += " ";
         }
       }
-      console.log(tekst)
-      startTypingAnimation(tekst)
+      if (typeof tekst === "string") {
+        console.log(tekst)
+        startTypingAnimation(tekst)
+      } else {
+        return
+      }
     }
   } else if (tase == "t3") {
     console.log("t3")
