@@ -53,7 +53,7 @@ function generatsioon () {
           tekst += " ";
         }
       }
-      if (typeof tekst === "string") {
+      if (valmista.length != 0) {
         console.log(tekst)
         startTypingAnimation(tekst)
       } else {
